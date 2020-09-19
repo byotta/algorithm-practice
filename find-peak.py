@@ -6,8 +6,8 @@ Given an input array nums, where nums[i] ≠ nums[i+1], find a peak element and 
 The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
 """
 
-# my approach: rather than a standard O(N) array scan, we can perform a binary search approach, dropping half the array
-# each time
+# my approach: rather than a standard O(N) array scan, we can perform a binary search approach,
+# dropping half the array each time
 
 
 class Solution(object):
