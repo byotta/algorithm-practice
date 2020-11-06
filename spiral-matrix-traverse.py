@@ -15,23 +15,23 @@ def spiralTraverse(array):
     n, m = len(array), len(array[0])
     numElementsSeen = 0
     i, j = 0, 0
-     res = []
-      seenIndices = set()
-       while numElementsSeen < n * m:
+    res = []
+    seenIndices = set()
+    while numElementsSeen < n * m:
+        currDirection = directions[directionIndex]
+        element = array[i][j]
+        seenIndices.add((i, j))
+        res.append(element)
+        i += currDirection[0]
+        j += currDirection[1]
+        if i < 0 or i >= n or j < 0 or j >= m or (i, j) in seenIndices:
+            i -= currDirection[0]
+            j -= currDirection[1]
+            directionIndex += 1
+            if directionIndex == 4:
+                directionIndex = 0
             currDirection = directions[directionIndex]
-            element = array[i][j]
-            seenIndices.add((i, j))
-            res.append(element)
             i += currDirection[0]
             j += currDirection[1]
-            if i < 0 or i >= n or j < 0 or j >= m or (i, j) in seenIndices:
-                i -= currDirection[0]
-                j -= currDirection[1]
-                directionIndex += 1
-                if directionIndex == 4:
-                    directionIndex = 0
-                currDirection = directions[directionIndex]
-                i += currDirection[0]
-                j += currDirection[1]
-            numElementsSeen += 1
-        return res
+        numElementsSeen += 1
+    return res
